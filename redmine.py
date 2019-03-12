@@ -1,13 +1,12 @@
 import requests
 import os
 import random
-
+import json
 class RedmineProjects(object):
     def __init__(self):
        self.redmine_login = os.environ["hg_redmine"]
        self.redmine_password = os.environ["redmine_pass"]
-       self.json_data = {"issue":{"project_id":1, "tracker_id":1, "status_id":1, "priority_id":1, "subject": "Examplepost"}}
-       #self.jsoned = {"issue":{"project_id":1, "tracker_id":1}}
+       self.json_data = json.dumps({"issue":{"project_id":1, "tracker_id":1, "status_id":1, "priority_id":1, "subject": "Examplepost"}})
        self.hg = os.environ["hg_url"]
 
     def redmine_get_projects(self):
